@@ -1,4 +1,7 @@
+using System;
+using System.Collections.Generic;
 using DEGNETCORE.core;
+using DEGNETCORE.core.models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 
@@ -21,6 +24,12 @@ namespace DEGNETCORE
         [HttpGet]
         public string Get() {
             return this.deg.GetJSONData();
+        }
+
+        [HttpPost]
+        public bool GetData([FromBody] List<JSONAttribute> models) {
+            Console.WriteLine("oi" + models);  
+            return true;
         }
     }
 }
